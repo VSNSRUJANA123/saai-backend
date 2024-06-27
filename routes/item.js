@@ -137,7 +137,7 @@ router.post("/chat/new", async (req, res) => {
 });
 router.get("/chat/history", async (req, res) => {
   try {
-    const chats = await Chat.find({});
+    const chats = await Chat.find({}).sort({ createdAt: -1 });
     res.json(chats);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch chat histories" });

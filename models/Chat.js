@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const chatSchema = new Schema({
-  id: { type: String, unique: true },
-  name: { type: String, required: true },
-  message: [],
-  timestamp: { type: Date, default: Date.now },
-});
+const chatSchema = new Schema(
+  {
+    id: { type: String, unique: true },
+    name: { type: String, unique: true, required: true },
+    message: [],
+  },
+  { timestamps: true }
+);
 
 const Chat = mongoose.model("Chat", chatSchema);
 
